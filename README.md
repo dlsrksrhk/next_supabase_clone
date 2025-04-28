@@ -1,0 +1,2 @@
+# next_supabase_clone
+next_supabase_clone
