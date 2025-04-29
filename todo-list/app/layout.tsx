@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }) {
   return (
     <ThemeProvider>
-      {/* @ts-ignore */}
       <html lang="en">
         <head>
           <link
