@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Checkbox,
-  IconButton,
-  Input,
-} from "node_modules/@material-tailwind/react";
+import { Checkbox, IconButton } from "node_modules/@material-tailwind/react";
 import { useState } from "react";
 
 export default function Todo({}) {
