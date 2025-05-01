@@ -3,18 +3,18 @@
 import { createServerSupabaseClient } from "app/utils/supabase/server";
 
 export async function uploadFile(formData: FormData) {
-  const file = formData.get("file") as File;
-
   const supabase = await createServerSupabaseClient();
-  const { data, error } = await supabase.storage
-    .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET)
-    .upload(file.name, file, { upsert: true });
+  const files = Array.from(formData.entries()).map(([name, file]) => file);
 
-  if (error) {
-    handleError(error);
-  }
+  const results = await Promise.all(
+    files.map((file: File) => {
+      supabase.storage
+        .from(process.env.NEXT_PUBLIC_STORAGE_BUCKET)
+        .upload(file.name, file, { upsert: true });
+    })
+  );
 
-  return data;
+  return results;
 }
 
 function handleError(error: any) {
