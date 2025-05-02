@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import UI from "./ui";
 
 export const metadata: Metadata = {
   title: "Root Home",
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <div>Root Home</div>;
+  return (
+    <main>
+      <UI />
+    </main>
+  );
 }
