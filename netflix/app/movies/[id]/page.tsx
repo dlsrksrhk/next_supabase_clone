@@ -1,6 +1,25 @@
 import { getMovie } from "app/actions/movieAction";
 import UI from "./ui";
 
+export async function generateMetadata({ params, searchParams }) {
+  const movie = await getMovie(params.id);
+  return {
+    title: movie.title,
+    description: movie.overview,
+    openGraph: {
+      title: movie.title,
+      description: movie.overview,
+      images: [
+        {
+          url: movie.image_url,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
+}
+
 export default async function MovieDetail({
   params,
 }: {

@@ -4,19 +4,33 @@ import { Database } from "types_db";
 
 export type MovieRow = Database["public"]["Tables"]["movie"]["Row"];
 
-export async function searchMovies(search = ""): Promise<MovieRow[]> {
+export async function searchMovies({ search = "", page, pageSize }) {
   const supabase = await createServerSupabaseClient();
 
-  const { data, error } = await supabase
+  const { data, count, error } = await supabase
     .from("movie")
-    .select("*")
-    .like("title", `%${search}%`);
+    .select("*", { count: "exact" })
+    .like("title", `%${search}%`)
+    .range((page - 1) * pageSize, page * pageSize - 1);
+
+  const hasNextPage = count > page * pageSize;
 
   if (error) {
-    handleError(error);
+    return {
+      data: [],
+      count: 0,
+      page: null,
+      pageSize: null,
+      error,
+    };
   }
 
-  return data;
+  return {
+    data,
+    page,
+    pageSize,
+    hasNextPage,
+  };
 }
 
 function handleError(error: any) {
