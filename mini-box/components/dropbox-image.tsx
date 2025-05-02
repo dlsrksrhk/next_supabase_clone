@@ -3,9 +3,9 @@
 import { Spinner } from "@material-tailwind/react";
 import { IconButton } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
-import { deleteFile } from "app/actions/storageActions";
-import { queryClient } from "app/config/ReactQueryClientProvider";
-import { getImageUrl } from "app/utils/supabase/storage";
+import { deleteFile } from "actions/storageActions";
+import { queryClient } from "config/ReactQueryClientProvider";
+import { getImageUrl } from "utils/supabase/storage";
 
 export default function DropboxImage({ image }) {
   const deleteFileMutation = useMutation({

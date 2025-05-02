@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteTodo, TodoRow, updateTodo } from "app/actions/todo-actions";
+import { deleteTodo, TodoRow, updateTodo } from "actions/todo-actions";
 import {
   Checkbox,
   IconButton,
@@ -8,7 +8,7 @@ import {
 } from "node_modules/@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { queryClient } from "app/config/ReactQueryClientProvider";
+import { queryClient } from "config/ReactQueryClientProvider";
 
 export default function Todo({ todo }: { todo: TodoRow }) {
   const [isEditing, setIsEditing] = useState(false);

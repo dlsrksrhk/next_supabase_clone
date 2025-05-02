@@ -2,8 +2,8 @@
 
 import { Spinner } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
-import { uploadFile } from "app/actions/storageActions";
-import { queryClient } from "app/config/ReactQueryClientProvider";
+import { uploadFile } from "actions/storageActions";
+import { queryClient } from "config/ReactQueryClientProvider";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 

@@ -2,10 +2,10 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import MovieCard from "./movie-card";
-import { searchMovies } from "app/actions/movieAction";
+import { searchMovies } from "actions/movieAction";
 import { Spinner } from "@material-tailwind/react";
 import { useRecoilValue } from "recoil";
-import { searchState } from "app/utils/recoil/atoms";
+import { searchState } from "utils/recoil/atoms";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 

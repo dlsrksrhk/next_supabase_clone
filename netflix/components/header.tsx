@@ -2,7 +2,7 @@
 
 import { useRecoilState } from "recoil";
 import Logo from "./logo";
-import { searchState } from "app/utils/recoil/atoms";
+import { searchState } from "utils/recoil/atoms";
 
 export default function Header() {
   const [search, setSearch] = useRecoilState(searchState);

@@ -1,6 +1,6 @@
 "use client";
 
-import { searchFiles } from "app/actions/storageActions";
+import { searchFiles } from "actions/storageActions";
 import DropboxImage from "./dropbox-image";
 import { useQuery } from "@tanstack/react-query";
 import { Spinner } from "@material-tailwind/react";

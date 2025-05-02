@@ -1,5 +1,5 @@
 "use server";
-import { createServerSupabaseClient } from "app/utils/supabase/server";
+import { createServerSupabaseClient } from "utils/supabase/server";
 import { Database } from "types_db";
 
 export type MovieRow = Database["public"]["Tables"]["movie"]["Row"];

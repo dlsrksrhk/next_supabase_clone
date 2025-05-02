@@ -1,10 +1,10 @@
 "use client";
 
 import { Button, Input } from "@material-tailwind/react";
-import Todo from "./components/todo";
+import Todo from "../components/todo";
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createTodo, getTodos } from "./actions/todo-actions";
+import { createTodo, getTodos } from "../actions/todo-actions";
 
 export default function UI() {
   const [searchInput, setSearchInput] = useState("");
