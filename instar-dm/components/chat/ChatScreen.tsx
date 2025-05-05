@@ -26,6 +26,7 @@ export default function ChatScreen({}) {
     queryFn: () => getUserById(selectedUserId),
   });
 
+  //채팅 목록 입력시 Mutaion 호출
   const sendMessageMutation = useMutation({
     mutationFn: async () => {
       return sendMessage({
@@ -39,6 +40,7 @@ export default function ChatScreen({}) {
     },
   });
 
+  //채팅 목록 조회
   const getAllMessagesQuery = useQuery({
     queryKey: ["messages", selectedUserId],
     queryFn: () => getAllMessages({ chatUserId: selectedUserId }),
